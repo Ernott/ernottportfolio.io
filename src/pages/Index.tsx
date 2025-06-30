@@ -1,10 +1,9 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Globe } from "lucide-react";
+import { Globe, Calendar, MapPin } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,6 +19,7 @@ const Index = () => {
     es: {
       nav: {
         about: 'Acerca',
+        experience: 'Experiencia',
         skills: 'Habilidades',
         projects: 'Proyectos',
         contact: 'Contacto'
@@ -36,6 +36,32 @@ const Index = () => {
         p2: 'Mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.',
         experience: 'Años de Experiencia',
         projects: 'Proyectos Completados'
+      },
+      experience: {
+        title: 'Experiencia Profesional',
+        jobs: [
+          {
+            company: 'GP Auto Logistics',
+            position: 'Account Manager',
+            location: 'Remoto',
+            period: 'Ago 2024 – Feb 2025',
+            description: 'Adquisición de clientes comerciales, gestión de plataforma de ventas y programación de servicios.'
+          },
+          {
+            company: 'Polygel Beauty',
+            position: 'Asistente Virtual',
+            location: 'Caracas/Remoto',
+            period: 'Oct 2023 – Ago 2024',
+            description: 'Gestión de comunidades, manejo de scripts de ventas y seguimiento de analíticas.'
+          },
+          {
+            company: 'EcoClic Venezuela',
+            position: 'Account Manager',
+            location: 'Remoto',
+            period: 'Feb 2023 – Sep 2023',
+            description: 'Participación comunitaria, creación de contenido, gestión de scripts de ventas y logística para el crecimiento de la comunidad.'
+          }
+        ]
       },
       skills: {
         title: 'Habilidades y Tecnologías',
@@ -72,6 +98,7 @@ const Index = () => {
     en: {
       nav: {
         about: 'About',
+        experience: 'Experience',
         skills: 'Skills',
         projects: 'Projects',
         contact: 'Contact'
@@ -88,6 +115,32 @@ const Index = () => {
         p2: 'My current focus is on backend development and workflow optimization, where I combine my skills in Python, Git, and Linux/WSL environments to create efficient and well-documented projects.',
         experience: 'Years Experience',
         projects: 'Projects Completed'
+      },
+      experience: {
+        title: 'Professional Experience',
+        jobs: [
+          {
+            company: 'GP Auto Logistics',
+            position: 'Account Manager',
+            location: 'Remote',
+            period: 'Aug 2024 – Feb 2025',
+            description: 'Commercial client acquisition, sales platform management, and service scheduling.'
+          },
+          {
+            company: 'Polygel Beauty',
+            position: 'Virtual Assistant',
+            location: 'Caracas/Remote',
+            period: 'Oct 2023 – Aug 2024',
+            description: 'Community management, sales script management, and analytics tracking.'
+          },
+          {
+            company: 'EcoClic Venezuela',
+            position: 'Account Manager',
+            location: 'Remote',
+            period: 'Feb 2023 – Sep 2023',
+            description: 'Community engagement, content creation, sales script management, and logistics for community growth.'
+          }
+        ]
       },
       skills: {
         title: 'Skills & Technologies',
@@ -168,7 +221,7 @@ const Index = () => {
             </div>
             <div className="flex items-center space-x-8">
               <div className="hidden md:flex space-x-8">
-                {['about', 'skills', 'projects', 'contact'].map((section) => (
+                {['about', 'experience', 'skills', 'projects', 'contact'].map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
@@ -292,6 +345,59 @@ const Index = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 px-6">
+        <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            {t.experience.title}
+          </h2>
+          
+          <div className="max-w-4xl mx-auto">
+            {t.experience.jobs.map((job, index) => (
+              <div key={index} className="relative">
+                {/* Timeline line */}
+                {index !== t.experience.jobs.length - 1 && (
+                  <div className="absolute left-6 top-20 w-0.5 h-32 bg-gradient-to-b from-cyan-500 to-purple-500"></div>
+                )}
+                
+                <div className="flex items-start space-x-8 mb-12">
+                  {/* Timeline dot */}
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full flex items-center justify-center">
+                    <Calendar className="h-6 w-6 text-white" />
+                  </div>
+                  
+                  {/* Job content */}
+                  <Card className="flex-1 bg-slate-800/80 border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+                        <div>
+                          <CardTitle className="text-cyan-400 text-xl mb-1">{job.company}</CardTitle>
+                          <CardDescription className="text-purple-300 text-lg font-medium">
+                            {job.position}
+                          </CardDescription>
+                        </div>
+                        <div className="flex flex-col md:items-end mt-2 md:mt-0">
+                          <Badge className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white mb-2">
+                            {job.period}
+                          </Badge>
+                          <div className="flex items-center text-gray-400 text-sm">
+                            <MapPin className="h-4 w-4 mr-1" />
+                            {job.location}
+                          </div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-300 leading-relaxed">{job.description}</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
