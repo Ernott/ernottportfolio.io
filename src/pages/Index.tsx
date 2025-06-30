@@ -4,9 +4,126 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Globe } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('about');
+  const [language, setLanguage] = useState('es');
+
+  const translations = {
+    es: {
+      nav: {
+        about: 'Acerca',
+        skills: 'Habilidades',
+        projects: 'Proyectos',
+        contact: 'Contacto'
+      },
+      hero: {
+        title: 'Desarrollador Full-Stack',
+        subtitle: 'Creando experiencias digitales excepcionales con tecnologías modernas y resolución creativa de problemas',
+        viewWork: 'Ver Mi Trabajo',
+        getInTouch: 'Contactar'
+      },
+      about: {
+        title: 'Acerca de Mí',
+        p1: 'Soy un desarrollador full-stack apasionado con experiencia en tecnologías web modernas. Me encanta crear soluciones innovadoras que combinan funcionalidad con diseño visual impresionante.',
+        p2: 'Con experiencia tanto en desarrollo frontend como backend, doy vida a las ideas a través de código limpio, interfaces intuitivas y arquitecturas escalables.',
+        experience: 'Años de Experiencia',
+        projects: 'Proyectos Completados'
+      },
+      skills: {
+        title: 'Habilidades y Tecnologías',
+        frontend: 'Frontend',
+        backend: 'Backend',
+        tools: 'Herramientas'
+      },
+      projects: {
+        title: 'Proyectos Destacados',
+        ernott: {
+          title: 'Framework Ernott',
+          description: 'Un framework de desarrollo moderno con componentes UI inspirados en neón',
+          status: 'Destacado'
+        },
+        ecommerce: {
+          title: 'E-commerce Full-Stack',
+          description: 'Solución completa de e-commerce con integración de pagos',
+          status: 'En Vivo'
+        },
+        aiChat: {
+          title: 'Aplicación de Chat con IA',
+          description: 'App de chat en tiempo real con respuestas potenciadas por IA',
+          status: 'En Progreso'
+        }
+      },
+      contact: {
+        title: 'Trabajemos Juntos',
+        subtitle: '¿Listo para dar vida a tus ideas? Siempre estoy emocionado de trabajar en nuevos proyectos y colaborar con personas increíbles.',
+        sendMessage: 'Enviar Mensaje',
+        downloadCV: 'Descargar CV'
+      },
+      footer: 'Creado con pasión y tecnologías web modernas.'
+    },
+    en: {
+      nav: {
+        about: 'About',
+        skills: 'Skills',
+        projects: 'Projects',
+        contact: 'Contact'
+      },
+      hero: {
+        title: 'Full-Stack Developer',
+        subtitle: 'Crafting exceptional digital experiences with modern technologies and creative problem-solving',
+        viewWork: 'View My Work',
+        getInTouch: 'Get In Touch'
+      },
+      about: {
+        title: 'About Me',
+        p1: "I'm a passionate full-stack developer with expertise in modern web technologies. I love creating innovative solutions that blend functionality with stunning visual design.",
+        p2: 'With experience in both frontend and backend development, I bring ideas to life through clean code, intuitive interfaces, and scalable architectures.',
+        experience: 'Years Experience',
+        projects: 'Projects Completed'
+      },
+      skills: {
+        title: 'Skills & Technologies',
+        frontend: 'Frontend',
+        backend: 'Backend',
+        tools: 'Tools'
+      },
+      projects: {
+        title: 'Featured Projects',
+        ernott: {
+          title: 'Ernott Framework',
+          description: 'A modern development framework with neon-inspired UI components',
+          status: 'Featured'
+        },
+        ecommerce: {
+          title: 'Full-Stack E-commerce',
+          description: 'Complete e-commerce solution with payment integration',
+          status: 'Live'
+        },
+        aiChat: {
+          title: 'AI Chat Application',
+          description: 'Real-time chat app with AI-powered responses',
+          status: 'In Progress'
+        }
+      },
+      contact: {
+        title: "Let's Work Together",
+        subtitle: "Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with amazing people.",
+        sendMessage: 'Send Message',
+        downloadCV: 'Download CV'
+      },
+      footer: 'Crafted with passion and modern web technologies.'
+    }
+  };
+
+  const t = translations[language as keyof typeof translations];
 
   const skills = [
     'JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 
@@ -15,22 +132,22 @@ const Index = () => {
 
   const projects = [
     {
-      title: 'Ernott Framework',
-      description: 'A modern development framework with neon-inspired UI components',
+      title: t.projects.ernott.title,
+      description: t.projects.ernott.description,
       tech: ['React', 'TypeScript', 'Tailwind CSS'],
-      status: 'Featured'
+      status: t.projects.ernott.status
     },
     {
-      title: 'Full-Stack E-commerce',
-      description: 'Complete e-commerce solution with payment integration',
+      title: t.projects.ecommerce.title,
+      description: t.projects.ecommerce.description,
       tech: ['Node.js', 'MongoDB', 'Stripe API'],
-      status: 'Live'
+      status: t.projects.ecommerce.status
     },
     {
-      title: 'AI Chat Application',
-      description: 'Real-time chat app with AI-powered responses',
+      title: t.projects.aiChat.title,
+      description: t.projects.aiChat.description,
       tech: ['Python', 'WebSocket', 'OpenAI'],
-      status: 'In Progress'
+      status: t.projects.aiChat.status
     }
   ];
 
@@ -49,18 +166,44 @@ const Index = () => {
             <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
               Ernott
             </div>
-            <div className="hidden md:flex space-x-8">
-              {['about', 'skills', 'projects', 'contact'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`capitalize transition-colors hover:text-cyan-400 ${
-                    activeSection === section ? 'text-cyan-400' : 'text-white'
-                  }`}
-                >
-                  {section}
-                </button>
-              ))}
+            <div className="flex items-center space-x-8">
+              <div className="hidden md:flex space-x-8">
+                {['about', 'skills', 'projects', 'contact'].map((section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className={`capitalize transition-colors hover:text-cyan-400 ${
+                      activeSection === section ? 'text-cyan-400' : 'text-white'
+                    }`}
+                  >
+                    {t.nav[section as keyof typeof t.nav]}
+                  </button>
+                ))}
+              </div>
+              
+              {/* Language Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="sm" className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10">
+                    <Globe className="h-4 w-4 mr-2" />
+                    {language.toUpperCase()}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-slate-800 border-cyan-500/30">
+                  <DropdownMenuItem 
+                    onClick={() => setLanguage('es')}
+                    className="text-white hover:bg-cyan-500/20 cursor-pointer"
+                  >
+                    🇪🇸 Español
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => setLanguage('en')}
+                    className="text-white hover:bg-cyan-500/20 cursor-pointer"
+                  >
+                    🇺🇸 English
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
@@ -84,12 +227,12 @@ const Index = () => {
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Full-Stack Developer
+              {t.hero.title}
             </span>
           </h1>
           
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Crafting exceptional digital experiences with modern technologies and creative problem-solving
+            {t.hero.subtitle}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -97,14 +240,14 @@ const Index = () => {
               onClick={() => scrollToSection('projects')}
               className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg"
             >
-              View My Work
+              {t.hero.viewWork}
             </Button>
             <Button 
               variant="outline" 
               onClick={() => scrollToSection('contact')}
               className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 text-lg"
             >
-              Get In Touch
+              {t.hero.getInTouch}
             </Button>
           </div>
         </div>
@@ -114,7 +257,7 @@ const Index = () => {
       <section id="about" className="py-20 px-6">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            About Me
+            {t.about.title}
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -131,23 +274,21 @@ const Index = () => {
             
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a passionate full-stack developer with expertise in modern web technologies. 
-                I love creating innovative solutions that blend functionality with stunning visual design.
+                {t.about.p1}
               </p>
               
               <p className="text-lg text-gray-300 leading-relaxed">
-                With experience in both frontend and backend development, I bring ideas to life 
-                through clean code, intuitive interfaces, and scalable architectures.
+                {t.about.p2}
               </p>
               
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-cyan-400">3+</div>
-                  <div className="text-gray-400">Years Experience</div>
+                  <div className="text-gray-400">{t.about.experience}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-purple-400">50+</div>
-                  <div className="text-gray-400">Projects Completed</div>
+                  <div className="text-gray-400">{t.about.projects}</div>
                 </div>
               </div>
             </div>
@@ -159,13 +300,13 @@ const Index = () => {
       <section id="skills" className="py-20 px-6 bg-slate-800/50">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Skills & Technologies
+            {t.skills.title}
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-slate-800/80 border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-cyan-400">Frontend</CardTitle>
+                <CardTitle className="text-cyan-400">{t.skills.frontend}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -180,7 +321,7 @@ const Index = () => {
 
             <Card className="bg-slate-800/80 border-purple-500/30 hover:border-purple-500/60 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-purple-400">Backend</CardTitle>
+                <CardTitle className="text-purple-400">{t.skills.backend}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -195,7 +336,7 @@ const Index = () => {
 
             <Card className="bg-slate-800/80 border-pink-500/30 hover:border-pink-500/60 transition-all duration-300">
               <CardHeader>
-                <CardTitle className="text-pink-400">Tools</CardTitle>
+                <CardTitle className="text-pink-400">{t.skills.tools}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
@@ -215,7 +356,7 @@ const Index = () => {
       <section id="projects" className="py-20 px-6">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Featured Projects
+            {t.projects.title}
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -251,19 +392,19 @@ const Index = () => {
       <section id="contact" className="py-20 px-6 bg-slate-800/50">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Let's Work Together
+            {t.contact.title}
           </h2>
           
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with amazing people.
+            {t.contact.subtitle}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg">
-              Send Message
+              {t.contact.sendMessage}
             </Button>
             <Button variant="outline" className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 text-lg">
-              Download CV
+              {t.contact.downloadCV}
             </Button>
           </div>
         </div>
@@ -273,7 +414,7 @@ const Index = () => {
       <footer className="py-8 px-6 border-t border-cyan-500/20">
         <div className="container mx-auto text-center">
           <p className="text-gray-400">
-            © 2024 Ernott. Crafted with passion and modern web technologies.
+            © 2024 Ernott. {t.footer}
           </p>
         </div>
       </footer>
