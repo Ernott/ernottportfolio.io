@@ -25,15 +25,15 @@ const Index = () => {
         contact: 'Contacto'
       },
       hero: {
-        title: 'Desarrollador Full-Stack',
-        subtitle: 'Creando experiencias digitales excepcionales con tecnologías modernas y resolución creativa de problemas',
+        title: 'Desarrollador Junior',
+        subtitle: 'Soy Javier A. Carbone, desarrollador junior con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.',
         viewWork: 'Ver Mi Trabajo',
         getInTouch: 'Contactar'
       },
       about: {
         title: 'Acerca de Mí',
-        p1: 'Soy un desarrollador full-stack apasionado con experiencia en tecnologías web modernas. Me encanta crear soluciones innovadoras que combinan funcionalidad con diseño visual impresionante.',
-        p2: 'Con experiencia tanto en desarrollo frontend como backend, doy vida a las ideas a través de código limpio, interfaces intuitivas y arquitecturas escalables.',
+        p1: 'Soy Javier A. Carbone, desarrollador junior con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.',
+        p2: 'Mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.',
         experience: 'Años de Experiencia',
         projects: 'Proyectos Completados'
       },
@@ -77,15 +77,15 @@ const Index = () => {
         contact: 'Contact'
       },
       hero: {
-        title: 'Full-Stack Developer',
-        subtitle: 'Crafting exceptional digital experiences with modern technologies and creative problem-solving',
+        title: 'Junior Developer',
+        subtitle: "I'm Javier A. Carbone, a junior developer with a passion for solving problems, automating processes, and transforming ideas into functional solutions.",
         viewWork: 'View My Work',
         getInTouch: 'Get In Touch'
       },
       about: {
         title: 'About Me',
-        p1: "I'm a passionate full-stack developer with expertise in modern web technologies. I love creating innovative solutions that blend functionality with stunning visual design.",
-        p2: 'With experience in both frontend and backend development, I bring ideas to life through clean code, intuitive interfaces, and scalable architectures.',
+        p1: "I'm Javier A. Carbone, a junior developer with a passion for solving problems, automating processes, and transforming ideas into functional solutions.",
+        p2: 'My current focus is on backend development and workflow optimization, where I combine my skills in Python, Git, and Linux/WSL environments to create efficient and well-documented projects.',
         experience: 'Years Experience',
         projects: 'Projects Completed'
       },
@@ -164,7 +164,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Ernott
+              Javier A. Carbone
             </div>
             <div className="flex items-center space-x-8">
               <div className="hidden md:flex space-x-8">
@@ -221,7 +221,7 @@ const Index = () => {
               />
             </div>
             <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-slate-900 font-bold text-lg">E</span>
+              <span className="text-slate-900 font-bold text-lg">J</span>
             </div>
           </div>
           
@@ -283,11 +283,11 @@ const Index = () => {
               
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400">3+</div>
+                  <div className="text-3xl font-bold text-cyan-400">1+</div>
                   <div className="text-gray-400">{t.about.experience}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-400">50+</div>
+                  <div className="text-3xl font-bold text-purple-400">10+</div>
                   <div className="text-gray-400">{t.about.projects}</div>
                 </div>
               </div>
@@ -310,7 +310,7 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'TypeScript', 'Tailwind CSS', 'Next.js'].map((skill) => (
+                  {['React', 'TypeScript', 'Tailwind CSS', 'HTML/CSS'].map((skill) => (
                     <Badge key={skill} variant="secondary" className="bg-cyan-500/20 text-cyan-300">
                       {skill}
                     </Badge>
@@ -325,7 +325,7 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {['Node.js', 'Python', 'MongoDB', 'PostgreSQL'].map((skill) => (
+                  {['Python', 'Node.js', 'Flask', 'FastAPI'].map((skill) => (
                     <Badge key={skill} variant="secondary" className="bg-purple-500/20 text-purple-300">
                       {skill}
                     </Badge>
@@ -340,7 +340,7 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {['AWS', 'Docker', 'Git', 'Figma'].map((skill) => (
+                  {['Git', 'Linux/WSL', 'Docker', 'VS Code'].map((skill) => (
                     <Badge key={skill} variant="secondary" className="bg-pink-500/20 text-pink-300">
                       {skill}
                     </Badge>
@@ -414,7 +414,7 @@ const Index = () => {
       <footer className="py-8 px-6 border-t border-cyan-500/20">
         <div className="container mx-auto text-center">
           <p className="text-gray-400">
-            © 2024 Ernott. {t.footer}
+            © 2024 Javier A. Carbone. {t.footer}
           </p>
         </div>
       </footer>
