@@ -31,7 +31,7 @@ const Index = () => {
         contact: "Contacto",
       },
       hero: {
-        title: "Desarrollador Junior",
+        title: "Ernott Dev",
         subtitle:
           "Soy Javier A. Carbone, desarrollador junior con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.",
         viewWork: "Ver Mi Trabajo",
@@ -39,8 +39,8 @@ const Index = () => {
       },
       about: {
         title: "Acerca de Mí",
-        p1: "Soy Javier A. Carbone, desarrollador junior con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.",
-        p2: "Mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.",
+        p1: "Soy Javier A. Carbone, desarrollador con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.",
+        p2: "A pesar de no trner experiencia mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.",
         experience: "Años de Experiencia",
         projects: "Proyectos Completados",
       },
@@ -90,21 +90,21 @@ const Index = () => {
       projects: {
         title: "Proyectos Destacados",
         ernott: {
-          title: "Framework Ernott",
+          title: "Barista Coffee Curso",
           description:
-            "Un framework de desarrollo moderno con componentes UI inspirados en neón",
+            "Un curso tipo blog completamenta gratuito para aprender a preparar café",
           status: "Destacado",
         },
         ecommerce: {
           title: "E-commerce Full-Stack",
           description:
             "Solución completa de e-commerce con integración de pagos",
-          status: "En Vivo",
+          status: "En Progreso",
         },
         aiChat: {
-          title: "Aplicación de Chat con IA",
+          title: "Discord, Telegram chat Bot",
           description:
-            "App de chat en tiempo real con respuestas potenciadas por IA",
+            "Aplicación de chat en tiempo real con respuestas impulsadas por IA",
           status: "En Progreso",
         },
       },
@@ -126,7 +126,7 @@ const Index = () => {
         contact: "Contact",
       },
       hero: {
-        title: "Junior Developer",
+        title: "Ernott Dev",
         subtitle:
           "I'm Javier A. Carbone, a junior developer with a passion for solving problems, automating processes, and transforming ideas into functional solutions.",
         viewWork: "View My Work",
@@ -184,9 +184,9 @@ const Index = () => {
       projects: {
         title: "Featured Projects",
         ernott: {
-          title: "Ernott Framework",
+          title: "Coffee Barista Course",
           description:
-            "A modern development framework with neon-inspired UI components",
+            "A completely free blog-style course to learn how to make coffee",
           status: "Featured",
         },
         ecommerce: {
@@ -195,8 +195,8 @@ const Index = () => {
           status: "Live",
         },
         aiChat: {
-          title: "AI Chat Application",
-          description: "Real-time chat app with AI-powered responses",
+          title: "Discord, Telegram Chat Bot",
+          description: "Real-time chat application with AI-powered responses",
           status: "In Progress",
         },
       },
