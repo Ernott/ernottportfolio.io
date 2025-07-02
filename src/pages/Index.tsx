@@ -20,6 +20,13 @@ const Index = () => {
       contact: "Contacto",
       downloadCV: "Descargar CV",
       viewProject: "Ver Proyecto",
+      nav: {
+        home: "Inicio",
+        projects: "Proyectos",
+        about: "Sobre Mí",
+        cv: "Currículum Vitae",
+        contact: "Contacto"
+      },
       projectsList: [
         {
           title: "Portfolio Personal",
@@ -90,6 +97,13 @@ const Index = () => {
       contact: "Contact",
       downloadCV: "Download CV",
       viewProject: "View Project",
+      nav: {
+        home: "Home",
+        projects: "Projects",
+        about: "About Me",
+        cv: "Resume",
+        contact: "Contact"
+      },
       projectsList: [
         {
           title: "Personal Portfolio",
@@ -153,15 +167,57 @@ const Index = () => {
 
   const currentContent = content[language];
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Navigation */}
-      <nav className="bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-cyan-500/30">
+      <nav className="bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-cyan-500/30 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{currentContent.name}</h1>
             </div>
+            
+            {/* Navigation Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              <button
+                onClick={() => scrollToSection('home')}
+                className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
+              >
+                {currentContent.nav.home}
+              </button>
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
+              >
+                {currentContent.nav.projects}
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
+              >
+                {currentContent.nav.about}
+              </button>
+              <button
+                onClick={() => scrollToSection('cv')}
+                className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
+              >
+                {currentContent.nav.cv}
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
+              >
+                {currentContent.nav.contact}
+              </button>
+            </div>
+
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
@@ -176,7 +232,7 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
-        <div className="text-center mb-16">
+        <section id="home" className="text-center mb-16">
           <Avatar className="w-32 h-32 mx-auto mb-6 ring-4 ring-cyan-400/50">
             <AvatarImage 
               src="/lovable-uploads/209a3321-2ce8-4c06-aa61-9bf3ccd64b8b.png" 
@@ -188,10 +244,10 @@ const Index = () => {
           <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">{currentContent.name}</h1>
           <p className="text-xl text-cyan-300 mb-2">{currentContent.title}</p>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">{currentContent.about}</p>
-        </div>
+        </section>
 
         {/* Projects Section */}
-        <section className="mb-16">
+        <section id="projects" className="mb-16">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.projects}</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {currentContent.projectsList.map((project, index) => (
@@ -229,7 +285,7 @@ const Index = () => {
         </section>
 
         {/* About Me Section */}
-        <section className="mb-16">
+        <section id="about" className="mb-16">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.aboutMe}</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
@@ -246,7 +302,7 @@ const Index = () => {
                 <img 
                   src="/lovable-uploads/d8fc4a2c-cd07-4b33-9731-7d111da392c6.png" 
                   alt="Ernott - Developer Illustration" 
-                  className="w-80 h-80 object-contain"
+                  className="w-96 h-96 object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg"></div>
               </div>
@@ -255,7 +311,7 @@ const Index = () => {
         </section>
 
         {/* CV Section */}
-        <section className="mb-16">
+        <section id="cv" className="mb-16">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.cv}</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Experience */}
@@ -331,7 +387,7 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section>
+        <section id="contact">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.contact}</h2>
           <Card className="max-w-md mx-auto bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
             <CardContent className="pt-6">
