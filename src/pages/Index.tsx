@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -7,6 +7,25 @@ import { ExternalLink, Download, Mail, Phone, MapPin, Calendar } from "lucide-re
 
 const Index = () => {
   const [language, setLanguage] = useState<'es' | 'en'>('es');
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections(prev => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   const content = {
     es: {
@@ -39,7 +58,7 @@ const Index = () => {
           title: "Curso de Barista",
           description: "Plataforma educativa para cursos de barista profesional. Incluye sistema de gestión de estudiantes y contenido multimedia.",
           technologies: ["React", "Node.js", "MongoDB", "Express"],
-          link: "#",
+          link: "https://ernott.github.io/ernott-barista/",
           isCurrentPage: false
         }
       ],
@@ -116,7 +135,7 @@ const Index = () => {
           title: "Barista Course",
           description: "Educational platform for professional barista courses. Includes student management system and multimedia content.",
           technologies: ["React", "Node.js", "MongoDB", "Express"],
-          link: "#",
+          link: "https://ernott.github.io/ernott-barista/",
           isCurrentPage: false
         }
       ],
@@ -232,7 +251,14 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
-        <section id="home" className="text-center mb-16">
+        <section 
+          id="home" 
+          className={`text-center mb-16 transition-all duration-1000 ${
+            visibleSections.has('home') 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <Avatar className="w-32 h-32 mx-auto mb-6 ring-4 ring-cyan-400/50">
             <AvatarImage 
               src="/lovable-uploads/209a3321-2ce8-4c06-aa61-9bf3ccd64b8b.png" 
@@ -247,7 +273,14 @@ const Index = () => {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="mb-16">
+        <section 
+          id="projects" 
+          className={`mb-16 transition-all duration-1000 delay-200 ${
+            visibleSections.has('projects') 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.projects}</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {currentContent.projectsList.map((project, index) => (
@@ -274,7 +307,12 @@ const Index = () => {
                       </span>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full bg-slate-700/50 border-cyan-500/30 text-cyan-300 hover:bg-slate-600/50 hover:border-purple-500/50">
+                  <Button 
+                    variant="outline" 
+                    className="w-full bg-slate-700/50 border-cyan-500/30 text-cyan-300 hover:bg-slate-600/50 hover:border-purple-500/50"
+                    onClick={() => project.link !== '#' && window.open(project.link, '_blank')}
+                    disabled={project.link === '#'}
+                  >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     {currentContent.viewProject}
                   </Button>
@@ -285,7 +323,14 @@ const Index = () => {
         </section>
 
         {/* About Me Section */}
-        <section id="about" className="mb-16">
+        <section 
+          id="about" 
+          className={`mb-16 transition-all duration-1000 delay-400 ${
+            visibleSections.has('about') 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.aboutMe}</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
@@ -311,7 +356,14 @@ const Index = () => {
         </section>
 
         {/* CV Section */}
-        <section id="cv" className="mb-16">
+        <section 
+          id="cv" 
+          className={`mb-16 transition-all duration-1000 delay-600 ${
+            visibleSections.has('cv') 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.cv}</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Experience */}
@@ -378,7 +430,7 @@ const Index = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0"
-              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1uoykXGCwcmEiQpfMKTUjgF7eASkMJKXli1Vy9B-NLm0', '_blank')}
+              onClick={() => window.open('https://docs.google.com/document/d/1uoykXGCwcmEiQpfMKTUjgF7eASkMJKXli1Vy9B-NLm0/export?format=pdf', '_blank')}
             >
               <Download className="w-4 h-4 mr-2" />
               {currentContent.downloadCV}
@@ -387,7 +439,14 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact">
+        <section 
+          id="contact"
+          className={`transition-all duration-1000 delay-800 ${
+            visibleSections.has('contact') 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.contact}</h2>
           <Card className="max-w-md mx-auto bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
             <CardContent className="pt-6">
