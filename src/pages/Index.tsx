@@ -1,614 +1,284 @@
+
 import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { Globe, Calendar, MapPin } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { ExternalLink, Download, Mail, Phone, MapPin, Calendar } from "lucide-react";
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState("about");
-  const [language, setLanguage] = useState("es");
+  const [language, setLanguage] = useState<'es' | 'en'>('es');
 
-  const translations = {
+  const content = {
     es: {
-      nav: {
-        about: "Acerca",
+      name: "Javier A. Carbone",
+      title: "Desarrollador Full Stack",
+      about: "Desarrollador apasionado por crear soluciones web innovadoras con experiencia en tecnologías modernas.",
+      projects: "Proyectos",
+      cv: "Currículum Vitae",
+      contact: "Contacto",
+      downloadCV: "Descargar CV",
+      viewProject: "Ver Proyecto",
+      projectsList: [
+        {
+          title: "Portfolio Personal",
+          description: "Mi página portfolio personal desarrollada con React, TypeScript y Tailwind CSS. Incluye diseño responsivo y soporte multiidioma.",
+          technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+          link: "#",
+          isCurrentPage: true
+        },
+        {
+          title: "Curso de Barista",
+          description: "Plataforma educativa para cursos de barista profesional. Incluye sistema de gestión de estudiantes y contenido multimedia.",
+          technologies: ["React", "Node.js", "MongoDB", "Express"],
+          link: "#",
+          isCurrentPage: false
+        }
+      ],
+      cvData: {
         experience: "Experiencia",
+        education: "Educación",
         skills: "Habilidades",
-        projects: "Proyectos",
-        contact: "Contacto",
-      },
-      hero: {
-        title: "Ernott Dev",
-        subtitle:
-          "Soy Javier A. Carbone, desarrollador junior con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.",
-        viewWork: "Ver Mi Trabajo",
-        getInTouch: "Contactar",
-      },
-      about: {
-        title: "Acerca de Mí",
-        p1: "Soy Javier A. Carbone, desarrollador con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales.",
-        p2: "A pesar de no trner experiencia mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.",
-        experience: "Años de Experiencia",
-        projects: "Proyectos Completados",
-      },
-      experience: {
-        title: "Experiencia Profesional",
-        jobs: [
+        experienceList: [
           {
-            company: "Agency Setters",
-            position: "Appoiment Setter",
-            location: "Remoto",
-            period: "May 2025 – Now",
-            description:
-              "Llamadas en frío, uso de CRM, administración de base de datos.",
-          },
-          {
-            company: "GP Auto Logistics",
-            position: "Account Manager",
-            location: "Remoto",
-            period: "Ago 2024 – Feb 2025",
-            description:
-              "Adquisición de clientes comerciales, gestión de plataforma de ventas y programación de servicios.",
-          },
-          {
-            company: "Polygel Beauty",
-            position: "Asistente Virtual",
-            location: "Caracas/Remoto",
-            period: "Oct 2023 – Ago 2024",
-            description:
-              "Gestión de comunidades, manejo de scripts de ventas y seguimiento de analíticas.",
-          },
-          {
-            company: "EcoClic Venezuela",
-            position: "Account Manager",
-            location: "Remoto",
-            period: "Feb 2023 – Sep 2023",
-            description:
-              "Participación comunitaria, creación de contenido, gestión de scripts de ventas y logística para el crecimiento de la comunidad.",
-          },
+            position: "Desarrollador Full Stack",
+            company: "Freelance",
+            period: "2023 - Presente",
+            description: "Desarrollo de aplicaciones web completas usando React, Node.js y bases de datos modernas."
+          }
         ],
-      },
-      skills: {
-        title: "Habilidades y Tecnologías",
-        frontend: "Frontend",
-        backend: "Backend",
-        tools: "Herramientas",
-      },
-      projects: {
-        title: "Proyectos Destacados",
-        ernott: {
-          title: "Barista Coffee Curso",
-          description:
-            "Un curso tipo blog completamenta gratuito para aprender a preparar café",
-          status: "Destacado",
-        },
-        ecommerce: {
-          title: "E-commerce Full-Stack",
-          description:
-            "Solución completa de e-commerce con integración de pagos",
-          status: "En Progreso",
-        },
-        aiChat: {
-          title: "Discord, Telegram chat Bot",
-          description:
-            "Aplicación de chat en tiempo real con respuestas impulsadas por IA",
-          status: "En Progreso",
-        },
-      },
-      contact: {
-        title: "Trabajemos Juntos",
-        subtitle:
-          "¿Listo para dar vida a tus ideas? Siempre estoy emocionado de trabajar en nuevos proyectos y colaborar con personas increíbles.",
-        sendMessage: "Enviar Mensaje",
-        downloadCV: "Descargar CV",
-      },
-      footer: "Creado con pasión y tecnologías web modernas.",
+        educationList: [
+          {
+            degree: "Ingeniería en Sistemas",
+            institution: "Universidad Tecnológica",
+            period: "2020 - 2024"
+          }
+        ],
+        skillsList: [
+          "JavaScript/TypeScript", "React", "Node.js", "MongoDB", 
+          "Express", "Tailwind CSS", "Git", "Docker"
+        ]
+      }
     },
     en: {
-      nav: {
-        about: "About",
+      name: "Javier A. Carbone",
+      title: "Full Stack Developer",
+      about: "Passionate developer focused on creating innovative web solutions with experience in modern technologies.",
+      projects: "Projects",
+      cv: "Resume",
+      contact: "Contact",
+      downloadCV: "Download CV",
+      viewProject: "View Project",
+      projectsList: [
+        {
+          title: "Personal Portfolio",
+          description: "My personal portfolio website built with React, TypeScript and Tailwind CSS. Features responsive design and multi-language support.",
+          technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+          link: "#",
+          isCurrentPage: true
+        },
+        {
+          title: "Barista Course",
+          description: "Educational platform for professional barista courses. Includes student management system and multimedia content.",
+          technologies: ["React", "Node.js", "MongoDB", "Express"],
+          link: "#",
+          isCurrentPage: false
+        }
+      ],
+      cvData: {
         experience: "Experience",
+        education: "Education",
         skills: "Skills",
-        projects: "Projects",
-        contact: "Contact",
-      },
-      hero: {
-        title: "Ernott Dev",
-        subtitle:
-          "I'm Javier A. Carbone, a junior developer with a passion for solving problems, automating processes, and transforming ideas into functional solutions.",
-        viewWork: "View My Work",
-        getInTouch: "Get In Touch",
-      },
-      about: {
-        title: "About Me",
-        p1: "I'm Javier A. Carbone, a junior developer with a passion for solving problems, automating processes, and transforming ideas into functional solutions.",
-        p2: "My current focus is on backend development and workflow optimization, where I combine my skills in Python, Git, and Linux/WSL environments to create efficient and well-documented projects.",
-        experience: "Years Experience",
-        projects: "Projects Completed",
-      },
-      experience: {
-        title: "Professional Experience",
-        jobs: [
+        experienceList: [
           {
-            company: "Agency Setters",
-            position: "Appoiment Setter",
-            location: "Remote",
-            period: "May 2025 – Now",
-            description: "Cold calling, CRM usage, database management.",
-          },
-          {
-            company: "GP Auto Logistics",
-            position: "Account Manager",
-            location: "Remote",
-            period: "Aug 2024 – Feb 2025",
-            description:
-              "Commercial client acquisition, sales platform management, and service scheduling.",
-          },
-          {
-            company: "Polygel Beauty",
-            position: "Virtual Assistant",
-            location: "Caracas/Remote",
-            period: "Oct 2023 – Aug 2024",
-            description:
-              "Community management, sales script management, and analytics tracking.",
-          },
-          {
-            company: "EcoClic Venezuela",
-            position: "Account Manager",
-            location: "Remote",
-            period: "Feb 2023 – Sep 2023",
-            description:
-              "Community engagement, content creation, sales script management, and logistics for community growth.",
-          },
+            position: "Full Stack Developer",
+            company: "Freelance",
+            period: "2023 - Present",
+            description: "Development of complete web applications using React, Node.js and modern databases."
+          }
         ],
-      },
-      skills: {
-        title: "Skills & Technologies",
-        frontend: "Frontend",
-        backend: "Backend",
-        tools: "Tools",
-      },
-      projects: {
-        title: "Featured Projects",
-        ernott: {
-          title: "Coffee Barista Course",
-          description:
-            "A completely free blog-style course to learn how to make coffee",
-          status: "Featured",
-        },
-        ecommerce: {
-          title: "Full-Stack E-commerce",
-          description: "Complete e-commerce solution with payment integration",
-          status: "Live",
-        },
-        aiChat: {
-          title: "Discord, Telegram Chat Bot",
-          description: "Real-time chat application with AI-powered responses",
-          status: "In Progress",
-        },
-      },
-      contact: {
-        title: "Let's Work Together",
-        subtitle:
-          "Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with amazing people.",
-        sendMessage: "Send Message",
-        downloadCV: "Download CV",
-      },
-      footer: "Crafted with passion and modern web technologies.",
-    },
+        educationList: [
+          {
+            degree: "Systems Engineering",
+            institution: "Technological University",
+            period: "2020 - 2024"
+          }
+        ],
+        skillsList: [
+          "JavaScript/TypeScript", "React", "Node.js", "MongoDB", 
+          "Express", "Tailwind CSS", "Git", "Docker"
+        ]
+      }
+    }
   };
 
-  const t = translations[language as keyof typeof translations];
-
-  const skills = [
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Node.js",
-    "Python",
-    "Java",
-    "MongoDB",
-    "PostgreSQL",
-    "AWS",
-    "Docker",
-  ];
-
-  const projects = [
-    {
-      title: t.projects.ernott.title,
-      description: t.projects.ernott.description,
-      tech: ["React", "TypeScript", "Tailwind CSS"],
-      status: t.projects.ernott.status,
-    },
-    {
-      title: t.projects.ecommerce.title,
-      description: t.projects.ecommerce.description,
-      tech: ["Node.js", "MongoDB", "Stripe API"],
-      status: t.projects.ecommerce.status,
-    },
-    {
-      title: t.projects.aiChat.title,
-      description: t.projects.aiChat.description,
-      tech: ["Python", "WebSocket", "OpenAI"],
-      status: t.projects.aiChat.status,
-    },
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+  const currentContent = content[language];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-cyan-500/20 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Javier A. Carbone
+      <nav className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <h1 className="text-xl font-bold text-gray-900">{currentContent.name}</h1>
             </div>
-            <div className="flex items-center space-x-8">
-              <div className="hidden md:flex space-x-8">
-                {["about", "experience", "skills", "projects", "contact"].map(
-                  (section) => (
-                    <button
-                      key={section}
-                      onClick={() => scrollToSection(section)}
-                      className={`capitalize transition-colors hover:text-cyan-400 ${
-                        activeSection === section
-                          ? "text-cyan-400"
-                          : "text-white"
-                      }`}
-                    >
-                      {t.nav[section as keyof typeof t.nav]}
-                    </button>
-                  )
-                )}
-              </div>
-
-              {/* Language Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10"
-                  >
-                    <Globe className="h-4 w-4 mr-2" />
-                    {language.toUpperCase()}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-slate-800 border-cyan-500/30">
-                  <DropdownMenuItem
-                    onClick={() => setLanguage("es")}
-                    className="text-white hover:bg-cyan-500/20 cursor-pointer"
-                  >
-                    🇪🇸 Español
-                  </DropdownMenuItem>
-                  <DropdownMenuItem
-                    onClick={() => setLanguage("en")}
-                    className="text-white hover:bg-cyan-500/20 cursor-pointer"
-                  >
-                    🇺🇸 English
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
+                className="px-3 py-1 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+              >
+                {language === 'es' ? 'EN' : 'ES'}
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto text-center">
-          <div className="relative inline-block mb-8">
-            <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 p-1">
-              <img
-                src="/lovable-uploads/8f704cb1-f853-473a-9844-60602040b3fc.png"
-                alt="Professional Portrait"
-                className="w-full h-full rounded-full object-cover bg-slate-900"
-              />
-            </div>
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-slate-900 font-bold text-lg">J</span>
-            </div>
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              {t.hero.title}
-            </span>
-          </h1>
-
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            {t.hero.subtitle}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={() => scrollToSection("projects")}
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg"
-            >
-              {t.hero.viewWork}
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => scrollToSection("contact")}
-              className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 text-lg"
-            >
-              {t.hero.getInTouch}
-            </Button>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <Avatar className="w-32 h-32 mx-auto mb-6">
+            <AvatarImage src="/lovable-uploads/209a3321-2ce8-4c06-aa61-9bf3ccd64b8b.png" alt={currentContent.name} />
+            <AvatarFallback>JC</AvatarFallback>
+          </Avatar>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{currentContent.name}</h1>
+          <p className="text-xl text-gray-600 mb-2">{currentContent.title}</p>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">{currentContent.about}</p>
         </div>
-      </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-6">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            {t.about.title}
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="relative">
-                <img
-                  src="/lovable-uploads/28e9cd9b-3ab8-4812-acb9-a07b5761a3f5.png"
-                  alt="Developer Portrait"
-                  className="rounded-lg w-full max-w-md mx-auto"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-lg"></div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                {t.about.p1}
-              </p>
-
-              <p className="text-lg text-gray-300 leading-relaxed">
-                {t.about.p2}
-              </p>
-
-              <div className="grid grid-cols-2 gap-6 pt-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-400">1+</div>
-                  <div className="text-gray-400">{t.about.experience}</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-400">10+</div>
-                  <div className="text-gray-400">{t.about.projects}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experience" className="py-20 px-6">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            {t.experience.title}
-          </h2>
-
-          <div className="max-w-4xl mx-auto">
-            {t.experience.jobs.map((job, index) => (
-              <div key={index} className="relative">
-                {/* Timeline line */}
-                {index !== t.experience.jobs.length - 1 && (
-                  <div className="absolute left-6 top-20 w-0.5 h-32 bg-gradient-to-b from-cyan-500 to-purple-500"></div>
-                )}
-
-                <div className="flex items-start space-x-8 mb-12">
-                  {/* Timeline dot */}
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full flex items-center justify-center">
-                    <Calendar className="h-6 w-6 text-white" />
-                  </div>
-
-                  {/* Job content */}
-                  <Card className="flex-1 bg-slate-800/80 border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
-                    <CardHeader>
-                      <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-                        <div>
-                          <CardTitle className="text-cyan-400 text-xl mb-1">
-                            {job.company}
-                          </CardTitle>
-                          <CardDescription className="text-purple-300 text-lg font-medium">
-                            {job.position}
-                          </CardDescription>
-                        </div>
-                        <div className="flex flex-col md:items-end mt-2 md:mt-0">
-                          <Badge className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white mb-2">
-                            {job.period}
-                          </Badge>
-                          <div className="flex items-center text-gray-400 text-sm">
-                            <MapPin className="h-4 w-4 mr-1" />
-                            {job.location}
-                          </div>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-300 leading-relaxed">
-                        {job.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 bg-slate-800/50">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            {t.skills.title}
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-slate-800/80 border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-cyan-400">
-                  {t.skills.frontend}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {["React", "TypeScript", "Tailwind CSS", "HTML/CSS"].map(
-                    (skill) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="bg-cyan-500/20 text-cyan-300"
-                      >
-                        {skill}
-                      </Badge>
-                    )
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-800/80 border-purple-500/30 hover:border-purple-500/60 transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-purple-400">
-                  {t.skills.backend}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {["Python", "Node.js", "Flask", "FastAPI"].map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="bg-purple-500/20 text-purple-300"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-800/80 border-pink-500/30 hover:border-pink-500/60 transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-pink-400">
-                  {t.skills.tools}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {["Git", "Linux/WSL", "Docker", "VS Code"].map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="secondary"
-                      className="bg-pink-500/20 text-pink-300"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            {t.projects.title}
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="bg-slate-800/80 border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 hover:transform hover:scale-105"
-              >
+        {/* Projects Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{currentContent.projects}</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {currentContent.projectsList.map((project, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <CardTitle className="text-white">
-                      {project.title}
-                    </CardTitle>
-                    <Badge className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white">
-                      {project.status}
-                    </Badge>
-                  </div>
-                  <CardDescription className="text-gray-300">
-                    {project.description}
-                  </CardDescription>
+                  <CardTitle className="flex items-center justify-between">
+                    {project.title}
+                    {project.isCurrentPage && (
+                      <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                        {language === 'es' ? 'Página Actual' : 'Current Page'}
+                      </span>
+                    )}
+                  </CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="outline"
-                        className="border-purple-500/50 text-purple-300"
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
                       >
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
+                  <Button variant="outline" className="w-full">
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    {currentContent.viewProject}
+                  </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-slate-800/50">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            {t.contact.title}
-          </h2>
+        {/* CV Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{currentContent.cv}</h2>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Experience */}
+            <Card>
+              <CardHeader>
+                <CardTitle>{currentContent.cvData.experience}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {currentContent.cvData.experienceList.map((exp, index) => (
+                  <div key={index} className="mb-4 last:mb-0">
+                    <h4 className="font-semibold text-gray-900">{exp.position}</h4>
+                    <p className="text-blue-600 font-medium">{exp.company}</p>
+                    <div className="flex items-center text-gray-500 text-sm mb-2">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {exp.period}
+                    </div>
+                    <p className="text-gray-600">{exp.description}</p>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
 
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-            {t.contact.subtitle}
-          </p>
+            {/* Education */}
+            <Card>
+              <CardHeader>
+                <CardTitle>{currentContent.cvData.education}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                {currentContent.cvData.educationList.map((edu, index) => (
+                  <div key={index} className="mb-4 last:mb-0">
+                    <h4 className="font-semibold text-gray-900">{edu.degree}</h4>
+                    <p className="text-blue-600 font-medium">{edu.institution}</p>
+                    <div className="flex items-center text-gray-500 text-sm">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {edu.period}
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white px-8 py-3 text-lg">
-              {t.contact.sendMessage}
-            </Button>
-            <Button
-              variant="outline"
-              className="border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-8 py-3 text-lg"
-            >
-              {t.contact.downloadCV}
+          {/* Skills */}
+          <Card className="mt-8">
+            <CardHeader>
+              <CardTitle>{currentContent.cvData.skills}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2">
+                {currentContent.cvData.skillsList.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-2 bg-indigo-100 text-indigo-800 rounded-lg font-medium"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Download CV Button */}
+          <div className="text-center mt-8">
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
+              <Download className="w-4 h-4 mr-2" />
+              {currentContent.downloadCV}
             </Button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="py-8 px-6 border-t border-cyan-500/20">
-        <div className="container mx-auto text-center">
-          <p className="text-gray-400">© 2024 Javier A. Carbone. {t.footer}</p>
-        </div>
-      </footer>
+        {/* Contact Section */}
+        <section>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{currentContent.contact}</h2>
+          <Card className="max-w-md mx-auto">
+            <CardContent className="pt-6">
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Mail className="w-5 h-5 text-gray-400 mr-3" />
+                  <span className="text-gray-700">javier@example.com</span>
+                </div>
+                <div className="flex items-center">
+                  <Phone className="w-5 h-5 text-gray-400 mr-3" />
+                  <span className="text-gray-700">+1 (555) 123-4567</span>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="w-5 h-5 text-gray-400 mr-3" />
+                  <span className="text-gray-700">Ciudad, País</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+      </div>
     </div>
   );
 };
