@@ -14,6 +14,8 @@ const Index = () => {
       title: "Desarrollador Full Stack",
       about: "Desarrollador apasionado por crear soluciones web innovadoras con experiencia en tecnologías modernas.",
       projects: "Proyectos",
+      aboutMe: "Sobre Mí",
+      aboutMeText: "Soy Javier A. Carbone, desarrollador con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales. A pesar de no tener experiencia mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.",
       cv: "Currículum Vitae",
       contact: "Contacto",
       downloadCV: "Descargar CV",
@@ -82,6 +84,8 @@ const Index = () => {
       title: "Full Stack Developer",
       about: "Passionate developer focused on creating innovative web solutions with experience in modern technologies.",
       projects: "Projects",
+      aboutMe: "About Me",
+      aboutMeText: "I'm Javier A. Carbone, a developer with a passion for solving problems, automating processes and transforming ideas into functional solutions. Despite not having experience, my current focus is on backend development and workflow optimization, where I combine my skills in Python, Git and Linux/WSL environments to create efficient and well-documented projects.",
       cv: "Resume",
       contact: "Contact",
       downloadCV: "Download CV",
@@ -150,18 +154,18 @@ const Index = () => {
   const currentContent = content[language];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
+      <nav className="bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-cyan-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-bold text-gray-900">{currentContent.name}</h1>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">{currentContent.name}</h1>
             </div>
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
-                className="px-3 py-1 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
+                className="px-3 py-1 text-sm font-medium text-cyan-300 bg-slate-800/50 rounded-md hover:bg-slate-700/50 transition-colors border border-cyan-500/30"
               >
                 {language === 'es' ? 'EN' : 'ES'}
               </button>
@@ -173,48 +177,48 @@ const Index = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <Avatar className="w-32 h-32 mx-auto mb-6">
+          <Avatar className="w-32 h-32 mx-auto mb-6 ring-4 ring-cyan-400/50">
             <AvatarImage 
               src="/lovable-uploads/209a3321-2ce8-4c06-aa61-9bf3ccd64b8b.png" 
               alt={currentContent.name}
               className="object-cover object-center"
             />
-            <AvatarFallback>JC</AvatarFallback>
+            <AvatarFallback className="bg-gradient-to-br from-cyan-500 to-purple-500 text-white text-2xl">JC</AvatarFallback>
           </Avatar>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{currentContent.name}</h1>
-          <p className="text-xl text-gray-600 mb-2">{currentContent.title}</p>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">{currentContent.about}</p>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">{currentContent.name}</h1>
+          <p className="text-xl text-cyan-300 mb-2">{currentContent.title}</p>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">{currentContent.about}</p>
         </div>
 
         {/* Projects Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{currentContent.projects}</h2>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.projects}</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {currentContent.projectsList.map((project, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="bg-slate-800/50 backdrop-blur-md border-cyan-500/30 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25">
                 <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
+                  <CardTitle className="flex items-center justify-between text-cyan-300">
                     {project.title}
                     {project.isCurrentPage && (
-                      <span className="text-sm bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                      <span className="text-sm bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-2 py-1 rounded-full">
                         {language === 'es' ? 'Página Actual' : 'Current Page'}
                       </span>
                     )}
                   </CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardDescription className="text-gray-300">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+                        className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 text-sm rounded-full border border-cyan-500/30"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <Button variant="outline" className="w-full">
+                  <Button variant="outline" className="w-full bg-slate-700/50 border-cyan-500/30 text-cyan-300 hover:bg-slate-600/50 hover:border-purple-500/50">
                     <ExternalLink className="w-4 h-4 mr-2" />
                     {currentContent.viewProject}
                   </Button>
@@ -224,41 +228,67 @@ const Index = () => {
           </div>
         </section>
 
+        {/* About Me Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.aboutMe}</h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <Card className="bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
+                <CardContent className="pt-6">
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    {currentContent.aboutMeText}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="order-1 lg:order-2 flex justify-center">
+              <div className="relative">
+                <img 
+                  src="/lovable-uploads/d8fc4a2c-cd07-4b33-9731-7d111da392c6.png" 
+                  alt="Ernott - Developer Illustration" 
+                  className="w-80 h-80 object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CV Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{currentContent.cv}</h2>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.cv}</h2>
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Experience */}
-            <Card>
+            <Card className="bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
               <CardHeader>
-                <CardTitle>{currentContent.cvData.experience}</CardTitle>
+                <CardTitle className="text-cyan-300">{currentContent.cvData.experience}</CardTitle>
               </CardHeader>
               <CardContent>
                 {currentContent.cvData.experienceList.map((exp, index) => (
-                  <div key={index} className="mb-4 last:mb-0">
-                    <h4 className="font-semibold text-gray-900">{exp.position}</h4>
-                    <p className="text-blue-600 font-medium">{exp.company}</p>
-                    <div className="flex items-center text-gray-500 text-sm mb-2">
+                  <div key={index} className="mb-4 last:mb-0 p-4 bg-slate-700/30 rounded-lg border border-purple-500/20">
+                    <h4 className="font-semibold text-purple-300">{exp.position}</h4>
+                    <p className="text-cyan-400 font-medium">{exp.company}</p>
+                    <div className="flex items-center text-gray-400 text-sm mb-2">
                       <Calendar className="w-4 h-4 mr-1" />
                       {exp.period}
                     </div>
-                    <p className="text-gray-600">{exp.description}</p>
+                    <p className="text-gray-300">{exp.description}</p>
                   </div>
                 ))}
               </CardContent>
             </Card>
 
             {/* Education */}
-            <Card>
+            <Card className="bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
               <CardHeader>
-                <CardTitle>{currentContent.cvData.education}</CardTitle>
+                <CardTitle className="text-cyan-300">{currentContent.cvData.education}</CardTitle>
               </CardHeader>
               <CardContent>
                 {currentContent.cvData.educationList.map((edu, index) => (
-                  <div key={index} className="mb-4 last:mb-0">
-                    <h4 className="font-semibold text-gray-900">{edu.degree}</h4>
-                    <p className="text-blue-600 font-medium">{edu.institution}</p>
-                    <div className="flex items-center text-gray-500 text-sm">
+                  <div key={index} className="mb-4 last:mb-0 p-4 bg-slate-700/30 rounded-lg border border-purple-500/20">
+                    <h4 className="font-semibold text-purple-300">{edu.degree}</h4>
+                    <p className="text-cyan-400 font-medium">{edu.institution}</p>
+                    <div className="flex items-center text-gray-400 text-sm">
                       <Calendar className="w-4 h-4 mr-1" />
                       {edu.period}
                     </div>
@@ -269,16 +299,16 @@ const Index = () => {
           </div>
 
           {/* Skills */}
-          <Card className="mt-8">
+          <Card className="mt-8 bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
             <CardHeader>
-              <CardTitle>{currentContent.cvData.skills}</CardTitle>
+              <CardTitle className="text-cyan-300">{currentContent.cvData.skills}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
                 {currentContent.cvData.skillsList.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-3 py-2 bg-indigo-100 text-indigo-800 rounded-lg font-medium"
+                    className="px-3 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 rounded-lg font-medium border border-purple-500/30"
                   >
                     {skill}
                   </span>
@@ -291,7 +321,7 @@ const Index = () => {
           <div className="text-center mt-8">
             <Button 
               size="lg" 
-              className="bg-indigo-600 hover:bg-indigo-700"
+              className="bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white border-0"
               onClick={() => window.open('https://drive.google.com/uc?export=download&id=1uoykXGCwcmEiQpfMKTUjgF7eASkMJKXli1Vy9B-NLm0', '_blank')}
             >
               <Download className="w-4 h-4 mr-2" />
@@ -302,21 +332,21 @@ const Index = () => {
 
         {/* Contact Section */}
         <section>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">{currentContent.contact}</h2>
-          <Card className="max-w-md mx-auto">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-8 text-center">{currentContent.contact}</h2>
+          <Card className="max-w-md mx-auto bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Mail className="w-5 h-5 text-gray-400 mr-3" />
-                  <span className="text-gray-700">javier@example.com</span>
+                  <Mail className="w-5 h-5 text-cyan-400 mr-3" />
+                  <span className="text-gray-300">javier@example.com</span>
                 </div>
                 <div className="flex items-center">
-                  <Phone className="w-5 h-5 text-gray-400 mr-3" />
-                  <span className="text-gray-700">+1 (555) 123-4567</span>
+                  <Phone className="w-5 h-5 text-cyan-400 mr-3" />
+                  <span className="text-gray-300">+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-gray-400 mr-3" />
-                  <span className="text-gray-700">Ciudad, País</span>
+                  <MapPin className="w-5 h-5 text-cyan-400 mr-3" />
+                  <span className="text-gray-300">Ciudad, País</span>
                 </div>
               </div>
             </CardContent>
