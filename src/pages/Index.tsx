@@ -87,30 +87,31 @@ const Index = () => {
         experienceList: [
           {
             position: "Appointment Setter",
-            company: "Agency Setters, Remote",
-            period: "Aug 2024 – Feb 2025",
-            description: "Cold Calls, CRM and service scheduling.",
+            company: "Agency Setters, Remoto",
+            period: "Ago 2024 – Feb 2025",
+            description:
+              "Llamadas en frío, gestión de CRM y programación de servicios.",
           },
           {
             position: "Account Manager",
-            company: "GP Auto Logistics, Remote",
-            period: "Aug 2024 – Feb 2025",
+            company: "GP Auto Logistics, Remoto",
+            period: "Ago 2024 – Feb 2025",
             description:
-              "Commercial client acquisition, sales platform management, and service scheduling.",
+              "Adquisición de clientes comerciales, gestión de plataforma de ventas y programación de servicios.",
           },
           {
-            position: "Virtual Assistant",
+            position: "Asistente Virtual",
             company: "Polygel Beauty, Caracas/Remote",
-            period: "Oct 2023 – Aug 2024",
+            period: "Oct 2023 – Ago 2024",
             description:
-              "Community management, sales script management, and analytics tracking.",
+              "Community management, gestión de guiones de ventas y seguimiento de analíticas.",
           },
           {
             position: "Account Manager",
             company: "EcoClic Venezuela, Remote",
             period: "Feb 2023 – Sep 2023",
             description:
-              "Community engagement, content creation, sales script management, and logistics for community growth.",
+              "Comunidad, creación de contenido, gestión de guiones de ventas y logística para el crecimiento de la comunidad.",
           },
         ],
         educationList: [
@@ -570,7 +571,7 @@ const Index = () => {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-cyan-400 mr-3" />
-                  <span className="text-gray-300">Ciudad, País</span>
+                  <span className="text-gray-300">Caracas, Venezuela</span>
                 </div>
               </div>
             </CardContent>
