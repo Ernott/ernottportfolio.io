@@ -40,10 +40,28 @@ const Index = () => {
         skills: "Habilidades",
         experienceList: [
           {
-            position: "Desarrollador Full Stack",
-            company: "Freelance",
-            period: "2023 - Presente",
-            description: "Desarrollo de aplicaciones web completas usando React, Node.js y bases de datos modernas."
+            position: "Appointment Setter",
+            company: "Agency Setters, Remote",
+            period: "Aug 2024 – Feb 2025",
+            description: "Cold Calls, CRM and service scheduling."
+          },
+          {
+            position: "Account Manager",
+            company: "GP Auto Logistics, Remote",
+            period: "Aug 2024 – Feb 2025",
+            description: "Commercial client acquisition, sales platform management, and service scheduling."
+          },
+          {
+            position: "Virtual Assistant",
+            company: "Polygel Beauty, Caracas/Remote",
+            period: "Oct 2023 – Aug 2024",
+            description: "Community management, sales script management, and analytics tracking."
+          },
+          {
+            position: "Account Manager",
+            company: "EcoClic Venezuela, Remote",
+            period: "Feb 2023 – Sep 2023",
+            description: "Community engagement, content creation, sales script management, and logistics for community growth."
           }
         ],
         educationList: [
@@ -90,10 +108,28 @@ const Index = () => {
         skills: "Skills",
         experienceList: [
           {
-            position: "Full Stack Developer",
-            company: "Freelance",
-            period: "2023 - Present",
-            description: "Development of complete web applications using React, Node.js and modern databases."
+            position: "Appointment Setter",
+            company: "Agency Setters, Remote",
+            period: "Aug 2024 – Feb 2025",
+            description: "Cold Calls, CRM and service scheduling."
+          },
+          {
+            position: "Account Manager",
+            company: "GP Auto Logistics, Remote",
+            period: "Aug 2024 – Feb 2025",
+            description: "Commercial client acquisition, sales platform management, and service scheduling."
+          },
+          {
+            position: "Virtual Assistant",
+            company: "Polygel Beauty, Caracas/Remote",
+            period: "Oct 2023 – Aug 2024",
+            description: "Community management, sales script management, and analytics tracking."
+          },
+          {
+            position: "Account Manager",
+            company: "EcoClic Venezuela, Remote",
+            period: "Feb 2023 – Sep 2023",
+            description: "Community engagement, content creation, sales script management, and logistics for community growth."
           }
         ],
         educationList: [
@@ -138,7 +174,11 @@ const Index = () => {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <Avatar className="w-32 h-32 mx-auto mb-6">
-            <AvatarImage src="/lovable-uploads/209a3321-2ce8-4c06-aa61-9bf3ccd64b8b.png" alt={currentContent.name} />
+            <AvatarImage 
+              src="/lovable-uploads/209a3321-2ce8-4c06-aa61-9bf3ccd64b8b.png" 
+              alt={currentContent.name}
+              className="object-cover object-center"
+            />
             <AvatarFallback>JC</AvatarFallback>
           </Avatar>
           <h1 className="text-4xl font-bold text-gray-900 mb-4">{currentContent.name}</h1>
@@ -249,7 +289,11 @@ const Index = () => {
 
           {/* Download CV Button */}
           <div className="text-center mt-8">
-            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
+            <Button 
+              size="lg" 
+              className="bg-indigo-600 hover:bg-indigo-700"
+              onClick={() => window.open('https://drive.google.com/uc?export=download&id=1uoykXGCwcmEiQpfMKTUjgF7eASkMJKXli1Vy9B-NLm0', '_blank')}
+            >
               <Download className="w-4 h-4 mr-2" />
               {currentContent.downloadCV}
             </Button>
