@@ -42,15 +42,12 @@ export interface Content {
   projects: string;
   aboutMe: string;
   aboutMeText: string;
-  cv: string;
   contact: string;
-  downloadCV: string;
   viewProject: string;
   nav: {
     home: string;
     projects: string;
     about: string;
-    cv: string;
     contact: string;
   };
   projectsList: Project[];

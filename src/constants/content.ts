@@ -11,15 +11,12 @@ export const content: Record<Language, Content> = {
     aboutMe: "Sobre Mí",
     aboutMeText:
       "Soy Javier A. Carbone, desarrollador con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales. A pesar de no tener experiencia mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.",
-    cv: "Currículum Vitae",
     contact: "Contacto",
-    downloadCV: "Descargar CV",
     viewProject: "Ver Proyecto",
     nav: {
       home: "Inicio",
       projects: "Proyectos",
       about: "Sobre Mí",
-      cv: "Currículum Vitae",
       contact: "Contacto",
     },
     projectsList: [
@@ -112,15 +109,12 @@ export const content: Record<Language, Content> = {
     aboutMe: "About Me",
     aboutMeText:
       "I'm Javier A. Carbone, a developer with a passion for solving problems, automating processes and transforming ideas into functional solutions. Despite not having experience, my current focus is on backend development and workflow optimization, where I combine my skills in Python, Git and Linux/WSL environments to create efficient and well-documented projects.",
-    cv: "Resume",
     contact: "Contact",
-    downloadCV: "Download CV",
     viewProject: "View Project",
     nav: {
       home: "Home",
       projects: "Projects",
       about: "About Me",
-      cv: "Resume",
       contact: "Contact",
     },
     projectsList: [

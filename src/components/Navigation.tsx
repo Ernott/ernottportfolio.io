@@ -40,12 +40,6 @@ const Navigation = ({ currentContent, language, setLanguage, scrollToSection }: 
               {currentContent.nav.about}
             </button>
             <button
-              onClick={() => scrollToSection("cv")}
-              className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
-            >
-              {currentContent.nav.cv}
-            </button>
-            <button
               onClick={() => scrollToSection("contact")}
               className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
             >

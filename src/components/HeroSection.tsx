@@ -27,9 +27,18 @@ const HeroSection = ({ currentContent, isVisible }: HeroSectionProps) => {
           JC
         </AvatarFallback>
       </Avatar>
-      <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
-        {currentContent.name}
-      </h1>
+      
+      <div className="flex items-center justify-center gap-4 mb-4">
+        <img 
+          src="/lovable-uploads/da26af42-5088-419e-bd2b-91c4cf316c64.png" 
+          alt="Ernott Logo" 
+          className="w-16 h-16 object-contain"
+        />
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+          {currentContent.name}
+        </h1>
+      </div>
+      
       <p className="text-xl text-cyan-300 mb-2">{currentContent.title}</p>
       <p className="text-lg text-gray-300 max-w-2xl mx-auto">
         {currentContent.about}

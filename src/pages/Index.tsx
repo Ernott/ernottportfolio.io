@@ -8,7 +8,6 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import AboutSection from "@/components/AboutSection";
-import CVSection from "@/components/CVSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
@@ -51,11 +50,6 @@ const Index = () => {
           <AboutSection 
             currentContent={currentContent}
             isVisible={visibleSections.has("about")}
-          />
-
-          <CVSection 
-            currentContent={currentContent}
-            isVisible={visibleSections.has("cv")}
           />
 
           <ContactSection 
