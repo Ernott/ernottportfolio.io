@@ -4,7 +4,7 @@ const CodeWallpaper = () => {
     <div 
       className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('/lovable-uploads/692962f2-860b-4224-8f35-35b0b8fc3189.png')`,
+        backgroundImage: `url('/lovable-uploads/46a72a01-6cbf-4a31-8788-9e24e5979784.png')`,
       }}
     />
   );
