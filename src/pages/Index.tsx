@@ -35,30 +35,27 @@ const Index = () => {
           scrollToSection={scrollToSection}
         />
 
-        {/* Main content with padding for fixed nav */}
-        <div className="pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <HeroSection 
             currentContent={currentContent}
             isVisible={visibleSections.has("home")}
           />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <ProjectsSection 
-              currentContent={currentContent}
-              language={language}
-              isVisible={visibleSections.has("projects")}
-            />
+          <ProjectsSection 
+            currentContent={currentContent}
+            language={language}
+            isVisible={visibleSections.has("projects")}
+          />
 
-            <AboutSection 
-              currentContent={currentContent}
-              isVisible={visibleSections.has("about")}
-            />
+          <AboutSection 
+            currentContent={currentContent}
+            isVisible={visibleSections.has("about")}
+          />
 
-            <ContactSection 
-              currentContent={currentContent}
-              isVisible={visibleSections.has("contact")}
-            />
-          </div>
+          <ContactSection 
+            currentContent={currentContent}
+            isVisible={visibleSections.has("contact")}
+          />
         </div>
       </div>
     </div>
