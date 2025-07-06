@@ -40,6 +40,11 @@ const Index = () => {
             currentContent={currentContent}
             isVisible={visibleSections.has("home")}
           />
+          
+          <AboutSection 
+            currentContent={currentContent}
+            isVisible={visibleSections.has("about")}
+          />
         </div>
       </div>
 
@@ -49,11 +54,6 @@ const Index = () => {
             currentContent={currentContent}
             language={language}
             isVisible={visibleSections.has("projects")}
-          />
-
-          <AboutSection 
-            currentContent={currentContent}
-            isVisible={visibleSections.has("about")}
           />
 
           <ContactSection 
