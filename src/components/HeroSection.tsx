@@ -1,3 +1,4 @@
+
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Content } from "@/types/portfolio";
 interface HeroSectionProps {
@@ -24,7 +25,7 @@ const HeroSection = ({
       </div>
       
       <p className="text-xl text-cyan-300 mb-2">{currentContent.title}</p>
-      <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+      <p className="text-lg text-gray-300 max-w-2xl mx-auto bg-slate-900/60 backdrop-blur-md rounded-lg px-6 py-4 border border-cyan-500/20">
         {currentContent.about}
       </p>
     </section>;
