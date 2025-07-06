@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, MessageCircle } from "lucide-react";
 import { Content } from "@/types/portfolio";
 
 interface ContactSectionProps {
@@ -37,6 +37,39 @@ const ContactSection = ({ currentContent, isVisible }: ContactSectionProps) => {
             <div className="flex items-center">
               <MapPin className="w-5 h-5 text-cyan-400 mr-3" />
               <span className="text-gray-300">Caracas, Venezuela</span>
+            </div>
+            <div className="flex items-center">
+              <Linkedin className="w-5 h-5 text-cyan-400 mr-3" />
+              <a 
+                href="https://www.linkedin.com/in/javier-a-carbone-7b4371198/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                LinkedIn
+              </a>
+            </div>
+            <div className="flex items-center">
+              <MessageCircle className="w-5 h-5 text-cyan-400 mr-3" />
+              <a 
+                href="https://discord.gg/UdqyZdKhbK" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                Discord
+              </a>
+            </div>
+            <div className="flex items-center">
+              <Github className="w-5 h-5 text-cyan-400 mr-3" />
+              <a 
+                href="https://github.com/Ernott" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-cyan-300 transition-colors"
+              >
+                GitHub
+              </a>
             </div>
           </div>
         </CardContent>

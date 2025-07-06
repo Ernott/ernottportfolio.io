@@ -70,8 +70,8 @@ const AboutMe = () => {
               <div className="order-1 lg:order-2 flex justify-center">
                 <div className="relative">
                   <img
-                    src="/lovable-uploads/d8fc4a2c-cd07-4b33-9731-7d111da392c6.png"
-                    alt="Developer Illustration"
+                    src="/lovable-uploads/bc2dac23-79e5-42bb-bb06-36818ed068b5.png"
+                    alt="Developer with Coffee Illustration"
                     className="w-96 h-96 object-contain"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-lg"></div>
