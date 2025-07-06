@@ -11,23 +11,7 @@ const AboutSection = ({
 }: AboutSectionProps) => {
   return <section id="about" className={`mb-16 transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
       
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <div className="order-2 lg:order-1">
-          <Card className="bg-slate-800/50 backdrop-blur-md border-cyan-500/30">
-            <CardContent className="pt-6">
-              <p className="text-gray-300 text-lg leading-relaxed">
-                {currentContent.aboutMeText}
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="order-1 lg:order-2 flex justify-center">
-          <div className="relative">
-            
-            
-          </div>
-        </div>
-      </div>
+      
 
       {/* Skills Section with Circular Animation */}
       <div className="mt-16">
