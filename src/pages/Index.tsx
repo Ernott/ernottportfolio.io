@@ -27,7 +27,7 @@ const Index = () => {
     <div className="min-h-screen relative">
       <CodeWallpaper />
 
-      <div className="relative z-10 bg-gradient-to-br from-slate-900/95 via-purple-900/95 to-slate-900/95 backdrop-blur-sm">
+      <div className="relative z-10">
         <Navigation 
           currentContent={currentContent}
           language={language}
@@ -40,7 +40,11 @@ const Index = () => {
             currentContent={currentContent}
             isVisible={visibleSections.has("home")}
           />
+        </div>
+      </div>
 
+      <div className="relative z-10 bg-gradient-to-br from-slate-900/95 via-purple-900/95 to-slate-900/95 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <ProjectsSection 
             currentContent={currentContent}
             language={language}
