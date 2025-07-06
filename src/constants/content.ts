@@ -10,7 +10,7 @@ export const content: Record<Language, Content> = {
     projects: "Proyectos",
     aboutMe: "Sobre Mí",
     aboutMeText:
-      "Soy Javier A. Carbone, desarrollador con pasión por resolver problemas, automatizar procesos y transformar ideas en soluciones funcionales. A pesar de no tener experiencia mi enfoque actual está en el desarrollo backend y la optimización de flujos de trabajo, donde combino mis habilidades en Python, Git y entornos Linux/WSL para crear proyectos eficientes y bien documentados.",
+      "Hola, soy Javier A. Carbone, un desarrollador junior versátil con pasión tanto por el código como por el arte del café. Me destaco por combinar lógica con creatividad, y por abordar cada desafío —ya sea en una terminal o detrás de una máquina de espresso— con determinación, curiosidad y un toque de diseño.",
     contact: "Contacto",
     viewProject: "Ver Proyecto",
     nav: {
@@ -41,6 +41,36 @@ export const content: Record<Language, Content> = {
       experience: "Experiencia",
       education: "Educación",
       skills: "Habilidades",
+      softSkills: "Habilidades Blandas",
+      methodology: "Metodología",
+      methodologyText: "Uso buenas prácticas de Scrum como definición de historias de usuario, seguimiento de tareas por sprints y revisión continua",
+      softSkillsList: [
+        {
+          icon: "🎯",
+          title: "Comunicación clara",
+          description: "Trilingüe entre código, clientes y café ☕"
+        },
+        {
+          icon: "🔁",
+          title: "Pensamiento iterativo",
+          description: "Me encanta refinar ideas hasta lograr una solución elegante"
+        },
+        {
+          icon: "🤝",
+          title: "Colaboración",
+          description: "Disfruto trabajar en equipo bajo metodologías ágiles"
+        },
+        {
+          icon: "🧩",
+          title: "Resolución de problemas",
+          description: "Desde bugs en despliegues hasta pedidos complejos de cappuccino"
+        },
+        {
+          icon: "🧠",
+          title: "Aprendizaje autodidacta",
+          description: "Siempre estoy explorando una nueva herramienta, framework o tendencia de diseño"
+        }
+      ],
       experienceList: [
         {
           position: "Appointment Setter",
@@ -108,7 +138,7 @@ export const content: Record<Language, Content> = {
     projects: "Projects",
     aboutMe: "About Me",
     aboutMeText:
-      "I'm Javier A. Carbone, a developer with a passion for solving problems, automating processes and transforming ideas into functional solutions. Despite not having experience, my current focus is on backend development and workflow optimization, where I combine my skills in Python, Git and Linux/WSL environments to create efficient and well-documented projects.",
+      "Hello, I'm Javier A. Carbone, a versatile junior developer with a passion for both code and the art of coffee. I stand out by combining logic with creativity, and by approaching every challenge —whether at a terminal or behind an espresso machine— with determination, curiosity, and a touch of design.",
     contact: "Contact",
     viewProject: "View Project",
     nav: {
@@ -139,6 +169,36 @@ export const content: Record<Language, Content> = {
       experience: "Experience",
       education: "Education",
       skills: "Skills",
+      softSkills: "Soft Skills",
+      methodology: "Methodology",
+      methodologyText: "I use good Scrum practices such as user story definition, task tracking by sprints, and continuous review",
+      softSkillsList: [
+        {
+          icon: "🎯",
+          title: "Clear communication",
+          description: "Trilingual between code, clients, and coffee ☕"
+        },
+        {
+          icon: "🔁",
+          title: "Iterative thinking",
+          description: "I love refining ideas until achieving an elegant solution"
+        },
+        {
+          icon: "🤝",
+          title: "Collaboration",
+          description: "I enjoy working in teams under agile methodologies"
+        },
+        {
+          icon: "🧩",
+          title: "Problem solving",
+          description: "From deployment bugs to complex cappuccino orders"
+        },
+        {
+          icon: "🧠",
+          title: "Self-learning",
+          description: "Always exploring a new tool, framework, or design trend"
+        }
+      ],
       experienceList: [
         {
           position: "Appointment Setter",

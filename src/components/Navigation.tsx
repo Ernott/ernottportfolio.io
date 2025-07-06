@@ -1,5 +1,6 @@
 
 import { Language, Content } from "@/types/portfolio";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface NavigationProps {
   currentContent: Content;
@@ -9,38 +10,58 @@ interface NavigationProps {
 }
 
 const Navigation = ({ currentContent, language, setLanguage, scrollToSection }: NavigationProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (section: string) => {
+    if (location.pathname === "/about" && section !== "about") {
+      // If we're on the about page and want to go to another section, go to home first
+      navigate("/");
+      setTimeout(() => scrollToSection(section), 100);
+    } else if (location.pathname === "/" && section === "about") {
+      // If we're on home and want to go to about, navigate to about page
+      navigate("/about");
+    } else {
+      // Normal scrolling on the same page
+      scrollToSection(section);
+    }
+  };
+
   return (
     <nav className="bg-slate-900/80 backdrop-blur-md shadow-lg border-b border-cyan-500/30 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <button
+              onClick={() => navigate("/")}
+              className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent hover:scale-105 transition-transform"
+            >
               {currentContent.name}
-            </h1>
+            </button>
           </div>
 
           {/* Navigation Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection("home")}
+              onClick={() => handleNavigation("home")}
               className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
             >
               {currentContent.nav.home}
             </button>
             <button
-              onClick={() => scrollToSection("projects")}
+              onClick={() => handleNavigation("projects")}
               className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
             >
               {currentContent.nav.projects}
             </button>
             <button
-              onClick={() => scrollToSection("about")}
+              onClick={() => handleNavigation("about")}
               className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
             >
               {currentContent.nav.about}
             </button>
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => handleNavigation("contact")}
               className="text-cyan-300 hover:text-cyan-400 transition-colors font-medium"
             >
               {currentContent.nav.contact}

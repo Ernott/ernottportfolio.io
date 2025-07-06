@@ -26,10 +26,20 @@ export interface SkillImage {
   name: string;
 }
 
+export interface SoftSkill {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 export interface CVData {
   experience: string;
   education: string;
   skills: string;
+  softSkills: string;
+  methodology: string;
+  methodologyText: string;
+  softSkillsList: SoftSkill[];
   experienceList: Experience[];
   educationList: Education[];
   skillsList: string[];
