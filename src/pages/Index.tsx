@@ -8,7 +8,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
   const [language, setLanguage] = useState<Language>("es");
@@ -56,7 +56,7 @@ const Index = () => {
             isVisible={visibleSections.has("projects")}
           />
 
-          <ContactSection 
+          <ContactForm 
             currentContent={currentContent}
             isVisible={visibleSections.has("contact")}
           />

@@ -1,6 +1,9 @@
 
 import { Language, Content } from "@/types/portfolio";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTheme } from "@/components/ThemeProvider";
+import { Sun, Moon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface NavigationProps {
   currentContent: Content;
@@ -12,6 +15,7 @@ interface NavigationProps {
 const Navigation = ({ currentContent, language, setLanguage, scrollToSection }: NavigationProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   const handleNavigation = (section: string) => {
     if (location.pathname === "/about" && section !== "about") {
@@ -69,6 +73,14 @@ const Navigation = ({ currentContent, language, setLanguage, scrollToSection }: 
           </div>
 
           <div className="flex items-center space-x-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="text-cyan-300 hover:text-cyan-400"
+            >
+              {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            </Button>
             <button
               onClick={() => setLanguage(language === "es" ? "en" : "es")}
               className="px-3 py-1 text-sm font-medium text-cyan-300 bg-slate-800/50 rounded-md hover:bg-slate-700/50 transition-colors border border-cyan-500/30"
